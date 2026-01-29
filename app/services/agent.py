@@ -27,7 +27,7 @@ class HoneyPotAgent:
             'models/gemini-3-flash-preview',
             system_instruction=self.system_instruction
         )
-        self.scam_detection_model = genai.GenerativeModel('models/gemini-2.5-flash')
+        self.scam_detection_model = genai.GenerativeModel('models/gemini-3-flash-preview')
 
     async def generate_response(self, text: str, history: list) -> str:
         
