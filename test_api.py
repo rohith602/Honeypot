@@ -13,7 +13,6 @@ def test_root():
 def test_webhook_scam():
     url = f"{BASE_URL}/api/webhook"
     headers = {
-        "x-api-key": API_KEY,
         "Content-Type": "application/json"
     }
     
@@ -47,7 +46,6 @@ def test_webhook_scam():
 def test_webhook_normal():
     url = f"{BASE_URL}/api/webhook"
     headers = {
-        "x-api-key": API_KEY,
         "Content-Type": "application/json"
     }
     

@@ -10,18 +10,13 @@ load_dotenv()
 app = FastAPI()
 agent = HoneyPotAgent()
 
-# Expected API Key (set in env)
-EXPECTED_API_KEY = os.getenv("HONEYPOT_API_KEY", "default-secret-key")
-
 @app.post("/api/webhook")
 async def webhook(
     request: IncomingRequest,
-    background_tasks: BackgroundTasks,
-    x_api_key: str = Header(None)
+    background_tasks: BackgroundTasks
 ):
-    if x_api_key != EXPECTED_API_KEY:
-        raise HTTPException(status_code=401, detail="Invalid API Key")
-
+    # API Key check removed as per user request
+    
     current_msg_text = request.message.text
     
     # 1. Detect Scam
